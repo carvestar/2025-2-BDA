@@ -4,7 +4,7 @@ your_Book = [2002, '파이썬', 200, '1교시']
 
 # other_Book = your_Book
 # other_Book = [your_Book[0], your_Book[1], your_Book[2], your_Book[3]]로 하면 your_Book과 다른 주소값
-other_Book = your_Book[0:4]     # 슬라이싱 이용하면 새롭게 메모리 만들어짐
+other_Book = your_Book[0:4]     # 슬라이싱 이용하면 새롭게 메모리 만들어짐, [0:4] == [:]
 
 
 print(my_Book)
