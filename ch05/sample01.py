@@ -10,16 +10,16 @@ print('=' * 50)
 print(selected_df.head())
 
 kor_df = selected_df[selected_df['location'] == 'South Korea']
-print('='*50)
+print('=' * 50)
 print(kor_df.head())
 
-#date컬럼을 index로 지정
+# date컬럼을 index로 지정
 index_name = 'date'
 kor_index_df = kor_df.set_index(index_name)
-print('='*50)
+print('=' * 50)
 print(kor_index_df.head())
 
-#대한민국코로나데이터 저장(csv -> covid_kor.csv)
+# 대한민국 코로나 데이터 저장(csv -> covid_kor.csv)
 kor_covid_file_name = './data/covid_kor.csv'
 if os.path.exists(kor_covid_file_name):
     os.remove(kor_covid_file_name)
@@ -27,15 +27,15 @@ kor_index_df.to_csv(kor_covid_file_name)
 #kor_index_df.to_csv(kor_covid_file_name, sep='|', encoding='utf-8')
 #kor_index_df.to_csv(kor_covid_file_name, encoding='utf-8', sep='|')
 
-#미국 코로나 발생 데이터 -> df(usa_index_df)
+# 미국 코로나 발생 데이터 -> df(usa_index_df)
 # -> 실습!!!!
 usa_df = selected_df[selected_df['iso_code'] == 'USA']
-print('='*50)
+print('=' * 50)
 print(usa_df.head())
 
-#usa데이터에 index지정
+# usa 데이터에 index지정
 usa_index_df = usa_df.set_index(index_name)
-print('='*50)
+print('=' * 50)
 print(usa_index_df.head())
 
 usa_covid_file_name = './data/covid_usa.csv'
