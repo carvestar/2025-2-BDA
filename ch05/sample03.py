@@ -13,7 +13,7 @@ def get_data(filename):
 
     return kor_index_df['total_cases']
 
-kor_data = get_data('./data/covid_korea.csv')
+kor_data = get_data('./data/covid_kor.csv')
 usa_data = get_data('./data/covid_usa.csv')
 index_data = kor_data.index
 
