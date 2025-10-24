@@ -6,19 +6,20 @@
 import os
 import pandas as pd
 
-#코로나 전체 데이터 파일
+# 코로나 원 데이터 파일
 covid_file_path = '../ch04/data/owid-covid-data.csv'
 raw_df = pd.read_csv(covid_file_path)
 
-# 원하는 컬럼만
+# 데이터분석에 필요한 컬럼만 사용
 selected_columns = ['iso_code', 'location', 'date', 'total_cases', 'population']
 selected_df = raw_df[selected_columns]
 
-#date컬럼에 인덱스 설정
-selected_date_index_df = selected_df.set_index('date')
+# date컬럼에 인덱스 설정
+index_name = 'date'
+selected_date_index_df = selected_df.set_index(index_name)
 
-#저장(dataframe -> csv파일로)
-covid_csv_file_path = '../ch08/data/common_covid.csv'
-if os.path.exists(covid_csv_file_path):
-    os.remove(covid_csv_file_path)
-selected_date_index_df.to_csv(covid_csv_file_path, encoding = 'utf-8')
+# 코로나데이터 저장(dataframe -> csv파일로)
+covid_common_csv_file_path = '../ch08/data/covid_common.csv'
+if os.path.exists(covid_common_csv_file_path):
+    os.remove(covid_common_csv_file_path)
+selected_date_index_df.to_csv(covid_common_csv_file_path, encoding = 'utf-8')
