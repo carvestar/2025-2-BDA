@@ -40,5 +40,5 @@ df = pd.DataFrame(
     index = index_data
 )
 
-df['2022-01-01' : '2022-12-31'].plot.line()
+df['2022-01-01' : '2022-12-31'].plot.line(rot = 45)
 plt.show()
