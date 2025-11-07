@@ -27,12 +27,14 @@ print(df_raw['date'].dt.year.unique()) # .unique() == 중복 제거
 # 2021년도 하와이 인구수: 1,441,553명
 hi_population = 1441553
 df_raw['population'] = hi_population
+# 컬럼명 변경
+df_raw['total_cases'] = df_raw['tot_cases']
 
 print('-' * 50)
 print(df_raw.head())
 
 # 원하는 데이터(날짜, 감염자수, 인구수
-col_list = ['date', 'tot_cases', 'population']
+col_list = ['date', 'total_cases', 'population']
 df_raw_filter = df_raw[col_list]
 
 print('-' * 50)
