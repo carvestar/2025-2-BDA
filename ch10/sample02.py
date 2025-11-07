@@ -1,7 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from ch05.common_function import init_matplotlib
-from ch08.sample02 import kor_population
 
 # 한글 폰트 깨짐 처리 함수 불러오기
 init_matplotlib()
@@ -9,14 +8,14 @@ init_matplotlib()
 # 전달 받은 파일명에 해당한는 Data리턴 함수
 def get_data(filename):
     df_raw = pd.read_csv(filename)
-    df_raw.set_index('date', inplace = True)
+    df_raw.set_index('date', inplace=True)
 
     # TODO: 오류 해결. . .
-    population = df_raw['population'].iat[0]    # 아이템 첫 번째 값 가지고 옴
+    population = df_raw['population'].iat[0]   # 아이템 첫 번째 값 가지고 옴
 
     return {
-        'population' : population,
-        'sr': df_raw['total_cases']    # 시리즈
+        'population': population,
+        'sr': df_raw['total_cases']
     }
 
 # 2020-01-01 ~ 2020-12-31
@@ -44,11 +43,5 @@ df = pd.DataFrame(
     },
     index = data_index
 )
-
-df[:].plot.line()
+df.plot.line()
 plt.show()
-
-
-
-
-ch10/sample02.py
