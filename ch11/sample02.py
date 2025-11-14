@@ -58,3 +58,6 @@ plt.show()
 ds_data.plot.barh()
 plt.tight_layout()
 plt.show()
+
+# 데이터 저장
+plt.savefig('./data_result.png')
