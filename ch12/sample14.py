@@ -7,4 +7,9 @@ file_name = './data/seoul-metro-2021.logs.csv'
 df_raw = pd.read_csv(file_name)
 
 print('-' * 100)
-print(df_raw)
+print(df_raw.info())                                            # timestamp == object
+
+df_raw['timestamp'] = pd.to_datetime(df_raw['timestamp'])       # datetime64로 변경
+
+print('-' * 100)
+print(df_raw.info())

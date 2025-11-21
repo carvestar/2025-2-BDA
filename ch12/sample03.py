@@ -36,12 +36,12 @@ print('-' * 50)
 ds_data.nlargest(5).plot.pie(figsize = (8, 8), autopct = '%1.2f%%', startangle = 90,
                              counterclock = False, title = f'{target_age} 개발자가 선호하는 언어 Top 5')
 
-plt.title(f'{target_age} 개발자가 선호하는 언어 Top 5', fontsize=15)
+plt.title(f'{target_age} 개발자가 선호하는 언어 Top 5', fontsize = 15)
 plt.ylabel('')
 plt.tight_layout()
 
 # 이미지 저장
-plt.savefig('./top5_lang.png')
+# plt.savefig('./top5_lang.png')
 
 # 화면 출력
 plt.show()
