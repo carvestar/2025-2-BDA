@@ -16,10 +16,12 @@ print(df_raw.info())                                            # timestamp == o
 df_raw['timestamp'] = pd.to_datetime(df_raw['timestamp'])       # datetime64로 변경
 
 print('-' * 100)
-print(df_raw.info())
+print(df_raw.info())                                            # timestamp == datetime64
 
 columns = ['station_code', 'people_in']
 data_in = df_raw[df_raw['timestamp'].dt.hour <= 9][columns].groupby('station_code').sum()
+data_in = df_raw[df_raw['timestamp'].dt.hour <= 9][['station_code', 'people_out']].groupby('station_code').sum()
+
 
 # 위 코드 분할
 # data_in = df_raw[df_raw['timestamp'].dt.hour <= 9]
@@ -33,6 +35,7 @@ print('-'*50)
 print(df_station.head())
 
 join_in = data_in.join(df_station)
+# == join_in = df_station.join(data_in)
 
 print('-'*50)
 print(join_in.head())
@@ -40,5 +43,9 @@ print(join_in.head())
 map = folium.Map(location=[37.566621, 126.978208], zoom_start=12)
 
 # 히트맵 플러그인 지도에 추가하기
-HeatMap(data = join_in[['geo.latitude', 'geo.longitude', 'people_in']]).add_to(map)
+# HeatMap(data = join_in[['geo.latitude', 'geo.longitude', 'people_in']]).add_to(map) ==
+# cols = ['geo.latitude', 'geo.longitude', 'people_in']
+# HeatMap(data = join_in[cols]).add_to(map)
+cols = ['geo.latitude', 'geo.longitude', 'people_out']
+HeatMap(data = join_in[cols]).add_to(map)
 map.show_in_browser()
