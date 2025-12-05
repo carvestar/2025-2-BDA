@@ -40,4 +40,4 @@ for page in range(1, total_page + 1):
 all_tabel_data.dropna(inplace = True)
 
 print(all_tabel_data.head())
-all_tabel_data.to_csv('all_table_data.csv')
+all_tabel_data.to_csv('stock_005930.csv')
